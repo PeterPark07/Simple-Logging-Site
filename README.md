@@ -7,7 +7,7 @@ This is a simple Flask application that allows you to save and retrieve log data
 1. Run the Flask application:
 
    ```bash
-   python app.py```
+   python app.py
 
 - The application will run on http://localhost:5000/.
 

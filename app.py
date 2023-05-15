@@ -11,10 +11,14 @@ def save_logs():
 
     return 'Log saved successfully'
 
-def run():
+@app.route('/logs', methods=['GET'])
+def get_logs():
+    with open('logs.txt', 'r') as f:
+        logs = f.read()
+        
+    return logs
+
+if __name__ == '__main__':
     # Use Gunicorn as the production server
     from gunicorn.app.wsgiapp import run as run_gunicorn
     run_gunicorn(app, host='0.0.0.0', port=5000)
-
-if __name__ == '__main__':
-    run()

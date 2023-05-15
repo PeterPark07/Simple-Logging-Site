@@ -18,6 +18,13 @@ def get_logs():
         
     return logs
 
+@app.route('/', methods=['GET'])
+def home():
+    with open('logs.txt', 'r') as f:
+        logs = f.read()
+
+    return render_template('home.html', logs=logs)
+
 if __name__ == '__main__':
     # Use Gunicorn as the production server
     from gunicorn.app.wsgiapp import run as run_gunicorn

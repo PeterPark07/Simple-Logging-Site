@@ -12,4 +12,4 @@ def save_logs():
     return 'Log saved successfully'
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run()

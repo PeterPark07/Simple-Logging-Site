@@ -19,5 +19,5 @@ def save_logs():
 #     app.run()
 
 # Comment out the app.run() line above and uncomment the lines below if you want to run the app using gunicorn or a WSGI server
-# if __name__ == '__main__':
-#     run()
+if __name__ == '__main__':
+    run()

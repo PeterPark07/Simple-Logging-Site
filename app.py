@@ -1,4 +1,5 @@
 from flask import Flask, request, render_template
+import os
 
 app = Flask(__name__)
 
@@ -13,13 +14,21 @@ def save_logs():
 
 @app.route('/logs', methods=['GET'])
 def get_logs():
+    if not os.path.exists('logs.txt'):
+        return 'No logs available'
+
     with open('logs.txt', 'r') as f:
         logs = f.read()
-        
+
     return logs
 
 @app.route('/', methods=['GET'])
 def home():
+    if not os.path.exists('logs.txt'):
+        # Create the file if it doesn't exist
+        with open('logs.txt', 'w') as f:
+            pass
+
     with open('logs.txt', 'r') as f:
         logs = f.read()
 

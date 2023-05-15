@@ -22,7 +22,7 @@ def get_logs():
 
     return logs
 
-@app.route('/', methods=['GET'])
+@app.route('/show', methods=['GET'])
 def home():
     if not os.path.exists('logs.txt'):
         # Create the file if it doesn't exist
